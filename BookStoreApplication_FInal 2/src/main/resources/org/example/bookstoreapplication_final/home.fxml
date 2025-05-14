@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="696.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Backend.HomeController">
+    <children>
+        <AnchorPane prefHeight="71.0" prefWidth="961.0" style="-fx-background-color: #D6D3FD;">
+            <children>
+                <TextField layoutX="164.0" layoutY="23.0" prefHeight="26.0" prefWidth="358.0" promptText="Search books, authors, genre, language..." style="-fx-border-color: black;" />
+                <Button layoutX="522.0" layoutY="23.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="59.0" style="-fx-background-color: silver; -fx-border-color: black;" text="Search" />
+                <Button layoutX="624.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: yellow; -fx-border-color: black;" text="My Account">
+                    <font>
+                        <Font name="Franklin Gothic Heavy" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="myCart" layoutX="744.0" layoutY="23.0" mnemonicParsing="false" onAction="#myCartButtonOnAction" style="-fx-background-color: yellow; -fx-border-color: black;" text="My Cart">
+                    <font>
+                        <Font name="Franklin Gothic Heavy" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="logout" layoutX="27.0" layoutY="25.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" style="-fx-background-color: red; border: black;" text="Logout">
+                    <font>
+                        <Font name="Franklin Gothic Heavy" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="refresh" layoutX="837.0" layoutY="22.0" mnemonicParsing="false" onAction="#refreshHandle" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #445DF9;" text="REFRESH">
+                    <font>
+                        <Font name="Franklin Gothic Heavy" size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="71.0" prefHeight="106.0" prefWidth="962.0" style="-fx-background-color: #263F73;">
+            <children>
+                <Label layoutX="218.0" layoutY="29.0" prefHeight="48.0" prefWidth="426.0" text="One Stop Destination for all books!" textFill="WHITE">
+                    <font>
+                        <Font name="Brush Script MT Italic" size="36.0" />
+                    </font>
+                </Label>
+                <Ellipse fill="#f5fcb2" layoutX="95.0" layoutY="55.0" radiusX="81.0" radiusY="41.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label layoutX="31.0" layoutY="34.0" prefHeight="42.0" prefWidth="134.0" text="Special offers for preferred customers" textFill="#f70505" wrapText="true">
+                    <font>
+                        <Font name="Bodoni MT Black" size="13.0" />
+                    </font>
+                </Label>
+                <Ellipse fill="#f5fcb2" layoutX="767.0" layoutY="55.0" radiusX="81.0" radiusY="41.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label layoutX="718.0" layoutY="34.0" prefHeight="42.0" prefWidth="104.0" text="BROWSE BESTSELLERS BELOW" textFill="#f70505" wrapText="true">
+                    <font>
+                        <Font name="Bodoni MT Black" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="180.0" prefHeight="418.0" prefWidth="950.0" style="-fx-background-color: white;">
+            <children>
+                <AnchorPane fx:id="anchor1" layoutX="156.0" prefHeight="418.0" prefWidth="262.0" style="-fx-border-color: #263F73; -fx-border-width: 3;">
+                    <children>
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: red;" text="FICTION" textFill="WHITE">
+                            <font>
+                                <Font name="Britannic Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="32.0" prefHeight="27.0" prefWidth="218.0" text="BOOK TITLE 1" underline="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="143.0" fitWidth="127.0" layoutX="14.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bt1.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="122.0" layoutY="59.0" prefHeight="48.0" prefWidth="122.0" text="Author:                 L . D. GOFFIGAN" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="122.0" layoutY="109.0" prefHeight="42.0" prefWidth="122.0" text="Language:            ENGLISH" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="159.0" prefHeight="48.0" prefWidth="134.0" text="Edition:            First (Paperback))" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="bt1ISBN" layoutX="53.0" layoutY="209.0" prefHeight="48.0" prefWidth="94.0" text="123456789" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="avail1" layoutX="161.0" layoutY="224.0" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: green;" text="    In Stock" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Britannic Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="242.0" prefHeight="48.0" prefWidth="104.0" text="User Rating: " wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="42.0" fitWidth="148.0" layoutX="109.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bt1_r.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="14.0" layoutY="278.0" prefHeight="48.0" prefWidth="59.0" text="PRICE:" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="77.0" layoutY="278.0" prefHeight="48.0" prefWidth="62.0" text="Rs. 100" textFill="#f40808" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="148.0" layoutY="278.0" prefHeight="48.0" prefWidth="115.0" text="Offers available !" textFill="#f40808" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="bt1Cart" layoutX="11.0" layoutY="326.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="26.0" prefWidth="243.0" style="-fx-background-color: #445DF9;" text="ADD TO CART">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="rev1" layoutX="14.0" layoutY="367.0" mnemonicParsing="false" onAction="#writeReview" prefHeight="26.0" prefWidth="243.0" style="-fx-background-color: #61C834;" text="WRITE REVIEW">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="bt1ISBN1" layoutX="7.0" layoutY="209.0" prefHeight="48.0" prefWidth="46.0" text="ISBN" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="anchor2" layoutX="420.0" prefHeight="418.0" prefWidth="262.0" style="-fx-border-color: #263F73; -fx-border-width: 3;">
+                    <children>
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: green;" text="NON-FICTION" textFill="WHITE">
+                            <font>
+                                <Font name="Britannic Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="32.0" prefHeight="27.0" prefWidth="218.0" text="BOOK TITLE 2" underline="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="143.0" fitWidth="127.0" layoutX="14.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bt2.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="121.0" layoutY="59.0" prefHeight="48.0" prefWidth="122.0" text="Author:                 David Goodman" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="121.0" layoutY="109.0" prefHeight="42.0" prefWidth="122.0" text="Language:            SPANISH" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="117.0" layoutY="154.0" prefHeight="66.0" prefWidth="142.0" text="Edition:         Second (Paperback))" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="bt2ISBN" layoutX="56.0" layoutY="209.0" prefHeight="48.0" prefWidth="95.0" text="234567890" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="avail2" layoutX="164.0" layoutY="222.0" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: green;" text="    In Stock" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Britannic Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="240.0" prefHeight="48.0" prefWidth="104.0" text="User Rating: " wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="42.0" fitWidth="148.0" layoutX="109.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bt2_r.jpeg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="16.0" layoutY="276.0" prefHeight="48.0" prefWidth="59.0" text="PRICE:" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="81.0" layoutY="275.0" prefHeight="48.0" prefWidth="62.0" text="Rs. 150" textFill="#f40808" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="151.0" layoutY="276.0" prefHeight="48.0" prefWidth="115.0" text="Offers available !" textFill="#f40808" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="bt2Cart" layoutX="14.0" layoutY="323.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="26.0" prefWidth="243.0" style="-fx-background-color: #445DF9;" text="ADD TO CART">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="rev2" layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onAction="#writeReview" prefHeight="26.0" prefWidth="243.0" style="-fx-background-color: #61C834;" text="WRITE REVIEW">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="bt1ISBN11" layoutX="14.0" layoutY="209.0" prefHeight="48.0" prefWidth="46.0" text="ISBN" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="anchor3" layoutX="686.0" prefHeight="418.0" prefWidth="263.0" style="-fx-border-color: #263F73; -fx-border-width: 3;">
+                    <children>
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="55.0" style="-fx-background-color: brown;" text="MYSTERY" textFill="WHITE">
+                            <font>
+                                <Font name="Britannic Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="32.0" prefHeight="27.0" prefWidth="218.0" text="BOOK TITLE 3" underline="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="143.0" fitWidth="127.0" layoutX="14.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bt3.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="123.0" layoutY="59.0" prefHeight="48.0" prefWidth="122.0" text="Author:                 Robert Skuce" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="109.0" prefHeight="42.0" prefWidth="122.0" text="Language:           FRENCH" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="151.0" prefHeight="66.0" prefWidth="142.0" text="Edition:            Third (Paperback))" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="bt3ISBN" layoutX="71.0" layoutY="206.0" prefHeight="48.0" prefWidth="95.0" text="345678901" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="avail3" layoutX="174.0" layoutY="221.0" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: green;" text="    In Stock" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Britannic Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="21.0" layoutY="239.0" prefHeight="48.0" prefWidth="104.0" text="User Rating: " wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="42.0" fitWidth="148.0" layoutX="110.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bt_3.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="21.0" layoutY="277.0" prefHeight="48.0" prefWidth="59.0" text="PRICE:" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="80.0" layoutY="277.0" prefHeight="48.0" prefWidth="62.0" text="Rs. 220" textFill="#f40808" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="151.0" layoutY="277.0" prefHeight="48.0" prefWidth="115.0" text="Offers available !" textFill="#f40808" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="bt3Cart" layoutX="15.0" layoutY="325.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="26.0" prefWidth="243.0" style="-fx-background-color: #445DF9;" text="ADD TO CART">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="rev3" layoutX="15.0" layoutY="365.0" mnemonicParsing="false" onAction="#writeReview" prefHeight="26.0" prefWidth="243.0" style="-fx-background-color: #61C834;" text="WRITE REVIEW">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="14.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="bt1ISBN111" layoutX="20.0" layoutY="206.0" prefHeight="48.0" prefWidth="46.0" text="ISBN" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="418.0" prefWidth="154.0" style="-fx-border-color: #263F73; -fx-border-width: 3; -fx-background-color: #D6D3FD;">
+                    <children>
+                        <Label layoutX="8.0" layoutY="5.0" prefHeight="34.0" prefWidth="141.0" text="CATEGORIES" underline="true" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="39.0" prefHeight="18.0" prefWidth="55.0" text="Fiction">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="59.0" prefHeight="20.0" prefWidth="83.0" text="Non-Fiction">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="79.0" prefHeight="18.0" prefWidth="55.0" text="Mystery">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="99.0" prefHeight="18.0" prefWidth="55.0" text="Science">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="119.0" prefHeight="20.0" prefWidth="61.0" text="Romance">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="139.0" prefHeight="20.0" prefWidth="70.0" text="Biography">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="159.0" prefHeight="20.0" prefWidth="70.0" text="Self-Help">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="179.0" prefHeight="20.0" prefWidth="70.0" text="Fantasy">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="199.0" prefHeight="20.0" prefWidth="70.0" text="Thriller">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="219.0" prefHeight="20.0" prefWidth="70.0" text="History">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="239.0" prefHeight="34.0" prefWidth="141.0" text="TRENDING" underline="true" wrapText="true">
+                            <font>
+                                <Font name="Franklin Gothic Heavy" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="11.0" layoutY="267.0" prefHeight="65.0" prefWidth="134.0" text="Bhagavad Gita As It Is by HDG Shrila Prabhupada" wrapText="true">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="11.0" layoutY="333.0" prefHeight="65.0" prefWidth="134.0" text="Introduction to Algorithms by CLRS AND MORE..." wrapText="true">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="1.0" layoutY="598.0" prefHeight="98.0" prefWidth="961.0" style="-fx-background-color: #263F73;">
+            <children>
+                <Label layoutX="14.0" layoutY="7.0" prefHeight="82.0" prefWidth="942.0" text="Customer Care:  Write to us sushant22520@iiitd.ac.in OR reach out at helpline number- 9310437771" textFill="WHITE" wrapText="true">
+                    <font>
+                        <Font name="Franklin Gothic Heavy Italic" size="21.0" />
+                    </font>
+                </Label>
+            </children></AnchorPane>
+    </children>
+</AnchorPane>

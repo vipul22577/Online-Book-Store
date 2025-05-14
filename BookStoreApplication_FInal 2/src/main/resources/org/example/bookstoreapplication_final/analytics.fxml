@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="687.0" prefWidth="904.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Backend.Analytics">
+   <children>
+      <AnchorPane prefWidth="909.0" style="-fx-background-color: #263F73;">
+         <children>
+            <Label alignment="CENTER" layoutX="258.0" layoutY="5.0" prefHeight="55.0" prefWidth="413.0" text="Customer/Inventory Analysis" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="logout" layoutX="28.0" layoutY="20.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" style="-fx-background-color: red; border: black;" text="Logout">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="66.0" prefHeight="225.0" prefWidth="462.0" style="-fx-background-color: #D6D3FD;">
+         <children>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="226.0" text="Add New Book">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="7.0" layoutY="30.0" prefHeight="30.0" prefWidth="55.0" text="ISBN">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addISBN" layoutX="75.0" layoutY="33.0" promptText="Enter 10 digit ISBN" />
+            <Label alignment="CENTER" layoutX="7.0" layoutY="60.0" prefHeight="30.0" prefWidth="55.0" text="Title">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addTitle" layoutX="75.0" layoutY="62.0" promptText="Enter Book Title" />
+            <Label alignment="CENTER" layoutX="7.0" layoutY="90.0" prefHeight="30.0" prefWidth="55.0" text="Edition">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addEd" layoutX="75.0" layoutY="92.0" promptText="Enter Book Edition" />
+            <Label alignment="CENTER" layoutY="118.0" prefHeight="30.0" prefWidth="80.0" text="Language">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addLang" layoutX="80.0" layoutY="120.0" prefHeight="26.0" prefWidth="143.0" promptText="Enter Book Language" />
+            <Label alignment="CENTER" layoutX="12.0" layoutY="146.0" prefHeight="30.0" prefWidth="55.0" text="Type">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addType" layoutX="75.0" layoutY="148.0" promptText="Enter Book Type/Genre" />
+            <Button fx:id="saveBook" layoutX="89.0" layoutY="193.0" mnemonicParsing="false" onAction="#saveBookButtonOnAction" prefHeight="23.0" prefWidth="91.0" style="-fx-background-color: #61C834;" text="SAVE BOOK">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="13.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="223.0" layoutY="-1.0" prefHeight="30.0" prefWidth="226.0" text="Delete Book">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="231.0" layoutY="30.0" prefHeight="30.0" prefWidth="55.0" text="ISBN">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="delISBN" layoutX="286.0" layoutY="33.0" promptText="Enter 10 digit ISBN" />
+            <Button fx:id="deleteBook" layoutX="290.0" layoutY="63.0" mnemonicParsing="false" onAction="#deleteBookButtonOnAction" prefHeight="23.0" prefWidth="106.0" style="-fx-background-color: red;" text="DELETE BOOK">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="13.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="230.0" layoutY="102.0" prefHeight="30.0" prefWidth="226.0" text="Update Book Edition">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="231.0" layoutY="129.0" prefHeight="30.0" prefWidth="55.0" text="ISBN">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="upISBN" layoutX="286.0" layoutY="132.0" promptText="Enter 10 digit ISBN" />
+            <Label alignment="CENTER" layoutX="231.0" layoutY="158.0" prefHeight="30.0" prefWidth="55.0" text="Edition">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="upEd" layoutX="286.0" layoutY="161.0" promptText="Enter Book Edition" />
+            <Button fx:id="updateBook" layoutX="296.0" layoutY="193.0" mnemonicParsing="false" onAction="#updateBookButtonOnAction" prefHeight="23.0" prefWidth="106.0" style="-fx-background-color: yellow;" text="UPDATE BOOK">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="292.0" prefHeight="394.0" prefWidth="462.0" style="-fx-background-color: pink;">
+         <children>
+            <Label alignment="CENTER" layoutX="1.0" layoutY="6.0" prefHeight="30.0" prefWidth="454.0" text="TRENDING">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="today" layoutX="33.0" layoutY="51.0" mnemonicParsing="false" text="Today">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="month" layoutX="145.0" layoutY="51.0" mnemonicParsing="false" text="This Month">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="allTime" layoutX="290.0" layoutY="51.0" mnemonicParsing="false" text="All Time">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="18.0" />
+               </font>
+            </CheckBox>
+            <Label fx:id="trending" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="14.0" layoutY="84.0" prefHeight="302.0" prefWidth="437.0" style="-fx-border-color: black;" text="TRENDING" wrapText="true">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="rt" layoutX="353.0" layoutY="12.0" mnemonicParsing="false" onAction="#rtButtonOnAction" style="-fx-background-color: #445DF9; border: black;" text="Refresh">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="462.0" layoutY="66.0" prefHeight="357.0" prefWidth="447.0" style="-fx-background-color: pink;">
+         <children>
+            <Label alignment="CENTER" layoutY="-1.0" prefHeight="30.0" prefWidth="447.0" text="Customer Information">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="29.0" prefHeight="30.0" prefWidth="55.0" text="Status">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="custStatus" layoutX="55.0" layoutY="31.0" prefHeight="26.0" prefWidth="156.0" promptText="Enter &quot;Guest&quot; or &quot;Preferred&quot;" />
+            <Label alignment="CENTER" layoutX="212.0" layoutY="29.0" prefHeight="30.0" prefWidth="62.0" text="Country">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="custCountry" layoutX="274.0" layoutY="31.0" promptText="Enter Country" />
+            <Label alignment="CENTER" layoutY="57.0" prefHeight="30.0" prefWidth="55.0" text="Age">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ageLow" layoutX="55.0" layoutY="59.0" prefHeight="26.0" prefWidth="45.0" promptText="From" />
+            <TextField fx:id="ageHigh" layoutX="130.0" layoutY="59.0" prefHeight="26.0" prefWidth="45.0" promptText="To" />
+            <Label alignment="CENTER" layoutX="101.0" layoutY="57.0" prefHeight="30.0" prefWidth="26.0" text="-">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="212.0" layoutY="57.0" prefHeight="30.0" prefWidth="62.0" text="Gender">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="gender" layoutX="274.0" layoutY="61.0" promptText="Enter Gender" />
+            <Button fx:id="rc" layoutX="362.0" layoutY="87.0" mnemonicParsing="false" onAction="#rcButtonOnAction" style="-fx-background-color: #445DF9; border: black;" text="Refresh">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="12.0" />
+               </font>
+            </Button>
+            <ScrollPane hbarPolicy="ALWAYS" layoutX="12.0" layoutY="109.0" prefHeight="242.0" prefWidth="423.0" vbarPolicy="ALWAYS">
+               <content>
+                  <Label fx:id="custInfo" alignment="TOP_LEFT" prefHeight="228.0" prefWidth="410.0" text="Customer Info">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </content>
+            </ScrollPane>
+         </children></AnchorPane>
+      <AnchorPane layoutX="462.0" layoutY="424.0" prefHeight="262.0" prefWidth="447.0" style="-fx-background-color: #D6D3FD;">
+         <children>
+            <Label alignment="CENTER" layoutY="-1.0" prefHeight="30.0" prefWidth="447.0" text="Customer Order History">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="23.0" layoutY="29.0" prefHeight="30.0" prefWidth="114.0" text="Enter User ID">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ID" layoutX="149.0" layoutY="31.0" promptText="User ID of customer" />
+            <Button fx:id="ro" layoutX="357.0" layoutY="33.0" mnemonicParsing="false" onAction="#roButtonOnAction" style="-fx-background-color: #445DF9; border: black;" text="Refresh">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="orders" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="16.0" layoutY="68.0" prefHeight="167.0" prefWidth="414.0" style="-fx-border-color: black;" text="ORDERS" wrapText="true">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

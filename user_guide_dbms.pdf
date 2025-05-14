@@ -1,0 +1,133 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+}
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\thesection}{1em}{}
+
+\title{End-to-End Online Bookstore Application}
+\author{Sushant Kumar, Vipul Verma}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{End-to-End Online Bookstore Application}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This contains the features and transaction detalis (for deadline 6) of our application. We have included all major features we had commited to. Publisher, shipper, authors are integral to database but have no role as an user to our portal. The "further inclusion" of analytics based on customer attributes have been implemented.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Features}
+
+\subsection{User Authentication}
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item Login with username and password.
+    \item Blocking after 3 unsuccessful attempts.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Book Display}
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item Display books with ISBN, title, genre, author, language, availability, price, edition, and offers.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Rating System}
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item Ability to give star ratings to a book.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Cart Management}
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item Add a book to cart if it is in stock.
+    \item Move to cart and refresh to view books.
+    \item Remove a book with dynamic total amount change.
+    \item Concurrency control to prevent saving cart if another user saved cart with those books beforehand.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Payment Processing}
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item Save the cart and proceed to buy.
+    \item Refreshing payment portal and display of details for order.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Navigation}
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item Return to the home page.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Admin Analytics}
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item Add, Delete, Update a book
+    \item Check trending status for books on day, month, all time
+    \item cutomer analytics based on age, gender, country etc.
+    \item customers' orders history 
+\end{itemize}
+\end{tcolorbox}
+
+\section{Architecture}
+
+\subsection{Frontend}
+JavaFX, fxml with scene builder, command line(minor use)
+
+\subsection{Backend}
+Java, socket programming, fastxml framework, sql connector, MySQL
+
+\subsection{Transactions}
+\textbf{Conflicting}
+Cart Saving and order placement
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item T1 : Adding the book to the cart of a customer
+    \item T2 : Updating book's availability to "Out-of-Stock"\\\\
+Clearly T1 and T2 are conflicting and need to be serialized (T2 > T1). Further concurrency control has been implemented by querying whether book has not gone out of stock before adding to cart on the absence of which, the connection is rolled back.
+   \item T3 : Updating wallet for cash
+   \item T4 : Making Final payment\\\\
+T3 and T4 are conflicting and T3 should be scheduled before T4. Connection rolled back if minimal cash not in wallet and then T is executed.
+\end{itemize}
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{itemize}[label={$\bullet$}]
+    \item T1 : Add a book
+    \item T2 : Update a book
+    \item T3 : Delete a book
+    \item T4 : Book review update by customer\\\\
+Clearly, T1, T2, T3, T4 are independent and non conflicting
+\end{itemize}
+\end{tcolorbox}
+
+\end{document}
